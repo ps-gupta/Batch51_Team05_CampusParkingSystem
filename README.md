@@ -197,18 +197,18 @@ The following high-level flowchart represents the console-based program:
 
 ```mermaid
 flowchart TD
-    A(\[Start]) --> B\[Initialise 20 parking slots]
-    B --> C\[Load active records from file]
-    C --> D\[Display main menu]
-    D --> E\[/Read menu choice/]
-    E --> F{Choice?}
-    F -->|1| G\[Vehicle Entry]
-    F -->|2| H\[Vehicle Exit and Billing]
-    F -->|3| I\[Show Parking Availability]
-    F -->|4| J\[Search Vehicle]
-    F -->|5| K\[Display Parked Vehicles]
-    F -->|6| L\[Parking Revenue Report]
-    F -->|7| M(\[End])
+    A[Start] --> B[Initialise 20 parking slots]
+    B --> C[Load active records from file]
+    C --> D[Display main menu]
+    D --> E[Read menu choice/]
+    E --> F{Choice}
+    F -->|1| G[Vehicle Entry]
+    F -->|2| H[Vehicle Exit and Billing]
+    F -->|3| I[Show Parking Availability]
+    F -->|4| J[Search Vehicle]
+    F -->|5| K[Display Parked Vehicles]
+    F -->|6| L[Parking Revenue Report]
+    F -->|7| M[End]
     G --> D
     H --> D
     I --> D
