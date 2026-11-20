@@ -66,7 +66,7 @@ The **Smart Campus Parking System** provides a simple console-based solution for
    * Displays total revenue.
 7. **Text-file Storage**
 
-   * `parking\_records.txt` stores currently parked vehicles.
+   * `parking_records.txt` stores currently parked vehicles.
    * `transactions.txt` stores completed parking transactions.
    * Active parking records are loaded when the program starts.
 
@@ -238,12 +238,12 @@ flowchart TD
 
 ## 9\. Files Created by the Program
 
-### `parking\_records.txt`
+### `parking_records.txt`
 
 Stores currently parked vehicles. Each line uses this format:
 
 ```text
-registration\_number|vehicle\_type|slot\_number|entry\_timestamp
+registration_number|vehicle_type|slot_number|entry_timestamp
 ```
 
 Example format:
@@ -279,31 +279,31 @@ Both files are created in the program's current working directory when needed.
 Open the project folder in VS Code or PowerShell and run:
 
 ```powershell
-gcc -std=c99 -Wall -Wextra -Wpedantic smart\_campus\_parking.c -o parking.exe
-.\\parking.exe
+gcc -g smart_campus_parking.c -o parking.exe
+.\parking.exe
 ```
 
 ### Linux
 
 ```bash
-gcc -std=c99 -Wall -Wextra -Wpedantic smart\_campus\_parking.c -o parking
+gcc -g smart_campus_parking.c -o parking
 ./parking
 ```
 
 The program uses standard C library headers and does not require an additional third-party library.
 
-**Important:** Run the executable from the folder where you want `parking\_records.txt` and `transactions.txt` to be stored. Do not delete these files if you want to retain the saved parking data and transaction history.
+**Important:** Run the executable from the folder where you want `parking_records.txt` and `transactions.txt` to be stored. Do not delete these files if you want to retain the saved parking data and transaction history.
 
 ## 11\. Sample Test Cases
 
-The following tests were run against the supplied `smart\_campus\_parking.c` source using GCC 14.2.0. The program compiled successfully without any compiler warnings.
+The following tests were run against the supplied `smart_campus_parking.c` source using GCC 14.2.0. The program compiled successfully without any compiler warnings.
 
 |Test|Input / Setup|Expected Output|Actual Result|
 |-|-|-|-|
 |1. Valid vehicle entry|Register `DL8CAB1234`, category `2`|Vehicle is accepted, assigned slot 1, and 19 slots remain available.|**Passed.** `Entry successful. Slot number: 1` and `Available slots: 19` were displayed.|
 |2. Duplicate registration|Enter `DL8CAB1234` again while it is parked|Duplicate entry is rejected.|**Passed.** `This vehicle is already parked. Duplicate rejected.`|
 |3. Search parked vehicle|Search for `DL8CAB1234` after entry|Program displays the vehicle, category, and assigned slot.|**Passed.** The vehicle was found and its category and slot 1 were displayed.|
-|4. Persistence after restart|Start the program again after saving the vehicle|Program loads the active vehicle from `parking\_records.txt`.|**Passed.** `Loaded 1 active vehicle(s).` was displayed and the vehicle appeared in the parked-vehicle list.|
+|4. Persistence after restart|Start the program again after saving the vehicle|Program loads the active vehicle from `parking_records.txt`.|**Passed.** `Loaded 1 active vehicle(s).` was displayed and the vehicle appeared in the parked-vehicle list.|
 |5. Parking full|Start with all 20 slots occupied, then attempt another entry|Program rejects the new entry and displays a full-capacity message.|**Passed.** `Parking area is FULL.`|
 |6. Exit and billing|Four-wheeler with a test entry timestamp 7,800 seconds before exit|2.17 hours elapsed, 3 billable hours, fee Rs. 60.00, and slot released after successful saving.|**Passed.** `Duration: 2.17 hour(s)`, `Billable hrs: 3`, `Amount: Rs. 60.00`, and `Exit completed. Slot 1 is now available.`|
 |7. Revenue report|Run the report after Test 6|Four-wheeler revenue and total revenue should both be Rs. 60.00.|**Passed.** `Four-wheeler revenue: Rs. 60.00` and `TOTAL REVENUE: Rs. 60.00`.|
